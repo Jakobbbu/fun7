@@ -11,6 +11,8 @@ public interface UserService {
 
     GameUser getUserById(Long id) throws NullValueFoundException;
 
+    GameUser getUserByUserName(String username) throws NullValueFoundException;
+
     void deleteUserById(Long id);
 
     void incrementUserUsageCount(Long id) throws NullValueFoundException;

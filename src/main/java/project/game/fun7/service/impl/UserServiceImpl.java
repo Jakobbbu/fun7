@@ -41,6 +41,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public GameUser getUserByUserName(String username) throws NullValueFoundException {
+
+        Optional<GameUser> user = Optional.ofNullable(userRepository.findGameUserByUserName(username));
+        if(user.isPresent()) {
+            return user.get();
+        } else {
+            log.error("User with username: " + username + " does not exists");
+            throw new NullValueFoundException("Bad request");
+        }
+
+    }
+
+    @Override
     public void deleteUserById(Long id) {
             userRepository.deleteById(id);
     }

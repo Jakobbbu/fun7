@@ -44,6 +44,6 @@ public class CustomerSupportServiceImpl implements CustomerSupportService {
     }
 
     private boolean isBetweenWorkingHours(int hour) {
-        return customerSupportOpeningHour < hour && hour < customerSupportClosingHour;
+        return customerSupportOpeningHour <= hour && hour < customerSupportClosingHour;
     }
 }
