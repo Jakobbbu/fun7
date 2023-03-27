@@ -28,6 +28,10 @@ public class SecurityConfiguration {
                                 auth
                                         .requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.POST, "/login")).permitAll()
                                         /*.requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()*/
+                                        .requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.GET, "/v3/api-docs/**")).permitAll()
+                                        .requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.GET, "/swagger-ui/**")).permitAll()
+                                        .requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.GET, "/swagger-ui.html")).permitAll()
+                                        .requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.GET, "/api-docs.yaml")).permitAll()
                                         .requestMatchers(AntPathRequestMatcher.antMatcher("/services/**")).hasAnyRole("USER", "ADMIN")
                                         .requestMatchers(AntPathRequestMatcher.antMatcher("/administration/**")).hasRole("ADMIN")
                                         .requestMatchers(AntPathRequestMatcher.antMatcher(HttpMethod.DELETE)).hasRole("ADMIN")

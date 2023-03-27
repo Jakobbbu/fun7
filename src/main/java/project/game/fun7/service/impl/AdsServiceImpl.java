@@ -18,7 +18,7 @@ import java.util.Objects;
 @Service
 public class AdsServiceImpl implements AdsService {
 
-    private final Logger log = LoggerFactory.getLogger(AdsServiceImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(AdsServiceImpl.class);
 
     @Value("${ads.auth.username}")
     private String username;

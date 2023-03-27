@@ -13,7 +13,7 @@ import java.util.Arrays;
 @Service
 public class MultiplayerServiceImpl implements MultiplayerService {
 
-    private final Logger log = LoggerFactory.getLogger(MultiplayerServiceImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(MultiplayerServiceImpl.class);
     private final UserService userService;
 
     @Value("${multiplayer.availability.ISOCodes}")

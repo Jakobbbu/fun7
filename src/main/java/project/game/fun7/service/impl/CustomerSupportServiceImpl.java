@@ -15,7 +15,7 @@ import java.util.TimeZone;
 @Service
 public class CustomerSupportServiceImpl implements CustomerSupportService {
 
-    private final Logger log = LoggerFactory.getLogger(CustomerSupportServiceImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(CustomerSupportServiceImpl.class);
 
     @Value("${customer.support.timezone}")
     private String customerSupportTimeZone;

@@ -1,21 +1,22 @@
 package project.game.fun7.controller.rest_controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
+import project.game.fun7.controller.SecuredController;
 import project.game.fun7.err.BadRequestException;
 import project.game.fun7.facade.ServicesFacadeImpl;
 import project.game.fun7.model.dto.services.ServicesInfoDTO;
 
 import java.util.TimeZone;
 
+@Tag(name = "services", description = "ServicesController")
 @RestController
 @RequestMapping("/services")
-public class ServicesController {
+public class ServicesController implements SecuredController {
 
-    //TODO: (swagger, admin, docs, jwt, exceptions, testi)
-
-    private final Logger log = LoggerFactory.getLogger(ServicesController.class);
+    private static final Logger log = LoggerFactory.getLogger(ServicesController.class);
     private final ServicesFacadeImpl servicesFacade;
 
     public ServicesController(ServicesFacadeImpl servicesFacade) {
