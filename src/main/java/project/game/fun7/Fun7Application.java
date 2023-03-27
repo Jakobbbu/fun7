@@ -16,6 +16,13 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+/**
+ * The Fun7 application that
+ * is meant to be backend service for mobile game.
+ *
+ * @author  Jakob
+ * @version 1.0
+ */
 @SpringBootApplication
 @EnableJpaAuditing
 @Configuration
@@ -26,7 +33,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 		bearerFormat = "JWT",
 		scheme = "bearer"
 )
-
 public class Fun7Application {
 
 	public static void main(String[] args) {

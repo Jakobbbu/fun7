@@ -11,6 +11,9 @@ import project.game.fun7.model.dto.services.ServicesInfoDTO;
 
 import java.util.TimeZone;
 
+/**
+ * This is ServicesController, a controller that will return information about services
+ */
 @Tag(name = "services", description = "ServicesController")
 @RestController
 @RequestMapping("/services")
@@ -23,6 +26,13 @@ public class ServicesController implements SecuredController {
         this.servicesFacade = servicesFacade;
     }
 
+    /**
+     * This is the endpoint that will return the status of the three services.
+     * @param timeZone timezone of user e.g. Europe/Ljubljana
+     * @param id id of user
+     * @param cc users country code
+     * @return status of services.
+     */
     @GetMapping("/get-enabled")
     @ResponseBody
     public ServicesInfoDTO getServicesAvailabilityInfo(@RequestParam TimeZone timeZone, @RequestParam Long id, @RequestParam String cc) {

@@ -14,6 +14,9 @@ import project.game.fun7.service.UserService;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This is AdminController, a controller only user with admin rights can access
+ */
 @Tag(name = "administration", description = "AdminController")
 @RestController
 @RequestMapping("/administration")
@@ -30,13 +33,21 @@ public class AdminController implements SecuredController {
         this.modelMapper = modelMapper;
     }
 
-
+    /**
+     * This is the endpoint for getting all users.
+     * @return All users.
+     */
     @GetMapping("/user/get-all")
     @ResponseBody
     List<GameUserDetailsDTO> getAllUsers() {
         return userService.getAllUsers().stream().map(entity -> modelMapper.map(entity, GameUserDetailsDTO.class)).collect(Collectors.toList());
     }
 
+    /**
+     * This is the endpoint for getting details about user.
+     * @param id of user
+     * @return user details.
+     */
     @GetMapping("/user")
     @ResponseBody
     GameUserDetailsDTO getUserDetails(@RequestParam Long id) {
@@ -47,6 +58,10 @@ public class AdminController implements SecuredController {
         }
     }
 
+    /**
+     * This is the endpoint for deleting user.
+     * @param id of user
+     */
     @DeleteMapping("/user/delete")
     @ResponseBody
     public String deleteUser(@RequestParam Long id) {
